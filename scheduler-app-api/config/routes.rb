@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :technicians
   resources :services
   resources :appointments
   resources :locations

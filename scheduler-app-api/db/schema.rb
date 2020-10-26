@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_152800) do
+ActiveRecord::Schema.define(version: 2020_10_26_185521) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "date"
     t.string "time_target"
     t.string "time_window"
-    t.integer "user_id", null: false
     t.integer "location_id", null: false
+    t.integer "technician_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["location_id"], name: "index_appointments_on_location_id"
-    t.index ["user_id"], name: "index_appointments_on_user_id"
+    t.index ["technician_id"], name: "index_appointments_on_technician_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2020_10_26_152800) do
     t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -41,6 +43,15 @@ ActiveRecord::Schema.define(version: 2020_10_26_152800) do
     t.string "details"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "technicians", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "service_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["service_id"], name: "index_technicians_on_service_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,5 +64,7 @@ ActiveRecord::Schema.define(version: 2020_10_26_152800) do
   end
 
   add_foreign_key "appointments", "locations"
-  add_foreign_key "appointments", "users"
+  add_foreign_key "appointments", "technicians"
+  add_foreign_key "locations", "users"
+  add_foreign_key "technicians", "services"
 end
