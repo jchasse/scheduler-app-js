@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_185521) do
+ActiveRecord::Schema.define(version: 2020_10_26_200638) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "date"
     t.string "time_target"
     t.string "time_window"
     t.integer "location_id", null: false
-    t.integer "technician_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "technician_id", null: false
     t.index ["location_id"], name: "index_appointments_on_location_id"
     t.index ["technician_id"], name: "index_appointments_on_technician_id"
   end
