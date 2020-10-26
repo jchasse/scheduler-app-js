@@ -1,4 +1,4 @@
 class User < ApplicationRecord
-    has_many :appointments
-    # has_many :locations, through: :appointments
+    has_many :locations
+    has_many :appointments, through: :locations
 end
