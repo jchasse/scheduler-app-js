@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
- <head>
+  <head>
    <meta charset="utf-8">
    <title>Scheduler</title>
-   <link rel="stylesheet" href="styles.css">   
- </head>
- <body>
-   <header>
-     <h2>MY LOCATIONS</h2>
-   </header>
+   <link rel="stylesheet" href="styles/styles.css">   
+  </head>
 
-   <form id="userForm">
-    <label for="">First Name:</label>
-    <input type="text" id="first_name">
-    <label for="">Last Name:</label>
-    <input type="text" id="last_name">
-    <label for="">Mobile Number:</label>
-    <input type="text" id="mobile_number">
-    <input type="submit" >
-  </form>
- 
-   <main id='main-cards'>
-     <!-- Add our Time Availability options -->
- 
-   </main>
- 
-   <script src="./src/index.js"></script>
- </body>
+  <body>
+    <header>
+      <h2>WHAT CAN WE DO FOR YOU?</h2>
+    </header>
+
+    <div id="service-container">
+
+      <form id="serviceForm">
+        <label for="service">Choose a service:</label>
+        <select id="service" name="service">
+        <option value="Repair">Repair/Service</option>
+        <option value="Maintenance">Maintenance</option>
+        <option value="Estimate">Estimate for Replacement</option>
+        </select>
+        <input type="submit">
+      </form> <br>
+      
+    </div>
+
+
+
+
+    <!-- <form id="userForm">
+      <label for="">First Name:</label>
+      <input type="text" id="first_name">
+      <label for="">Last Name:</label>
+      <input type="text" id="last_name">
+      <label for="">Mobile Number:</label>
+      <input type="text" id="mobile_number">
+      <input type="submit" >
+    </form> -->
+    
+    <script src="./src/service.js"></script>
+    <script src="./src/location.js"></script>
+    <script src="./src/user.js"></script>
+    <script src="./src/index.js"></script>
+  </body>
 </html>
