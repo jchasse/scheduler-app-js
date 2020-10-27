@@ -5,4 +5,3 @@ class UserSerializer
       UserSerializer.new(user.locations).as_json["data"]
     end
 end
-  
