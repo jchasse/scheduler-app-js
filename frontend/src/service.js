@@ -11,10 +11,52 @@ class Service {
     }
 
     static createService() {
+        let issueArray = []
+
         const kind = document.getElementById('category-select').value
         const kindDetail = document.getElementById('service-select').value
-        const issue = document.getElementById('issue-select').value
+        const details = document.getElementById('details-select').value
+        const issue = document.querySelectorAll("label.active") // this returns a node list
+        for (const selection of issue) {
+            issueArray.push(selection.textContent)
+        }
+
     }
+
+    static fetchService() {
+
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({service: {
+                kind: kind, 
+                kind_detail: kindDetail,
+
+            }})
+        }
+        const url = "http://localhost:3000/services"
+      
+        document.getElementById('serviceForm').innerHTML = ""
+      
+        fetch(url, options).then(r => r.json()).then(serviceObj => {
+            let newService = new Service(serviceObj.data)
+            newService.renderService()
+        })
+    }
+
+    renderService() {
+        let div = document.getElementById('service-container')
+        let h4 = document.createElement("h4")
+        h4.id = this.id
+        h4.innerText = this.kindDetail
+        // pgh.addEventListener('click', this.showList.bind(this))
+        div.append(h4)
+    }
+
+    //Rendering form tabs below
 
     static renderIssueForm(kind) {
 
@@ -115,52 +157,59 @@ class Service {
     }
 
     static renderLocationTab() {
-        let personDiv = document.getElementById('person-tab-details')
+        let locationDiv = document.getElementById('location-tab-details')
 
+        let div1 = document.createElement("div")
+            div1.setAttribute("class", "form-group")
+        locationDiv.appendChild(div1)
+        let inputA = document.createElement("input")
+            inputA.setAttribute("type", "text")
+            inputA.setAttribute("class", "form-control")
+            inputA.setAttribute("id", "inputAddress")
+            inputA.setAttribute("placeholder", "Address")
+        div1.appendChild(inputA)
 
+        let div2 = document.createElement("div")
+            div2.setAttribute("class", "form-group")
+        locationDiv.appendChild(div2)
+        let inputU = document.createElement("input")
+            inputU.setAttribute("type", "text")
+            inputU.setAttribute("class", "form-control")
+            inputU.setAttribute("id", "inputAddress2")
+            inputU.setAttribute("placeholder", "Apartment, studio, or floor")
+        div2.appendChild(inputU)
+
+        let div3 = document.createElement("div")
+            div3.setAttribute("class", "form-row")
+        locationDiv.appendChild(div3)
+
+        let divCity = document.createElement("div")
+            divCity.setAttribute("class", "form-group col-md-6")
+        let divState = document.createElement("div")
+            divState.setAttribute("class", "form-group col-md-4")
+        let divZip = document.createElement("div")
+            divZip.setAttribute("class", "form-group col-md-2")
+        div3.appendChild(divCity)
+        div3.appendChild(divState)
+        div3.appendChild(divZip)
+        
+        let inputCity = document.createElement("input")
+            inputCity.setAttribute("type", "text")
+            inputCity.setAttribute("class", "form-control")
+            inputCity.setAttribute("id", "inputCity")
+            inputCity.setAttribute("placeholder", "City")
+        divCity.appendChild(inputCity)
+        let inputState = document.createElement("input")
+            inputState.setAttribute("type", "text")
+            inputState.setAttribute("class", "form-control")
+            inputState.setAttribute("id", "inputCity")
+            inputState.setAttribute("placeholder", "State")
+        divState.appendChild(inputState)
+        let inputZip = document.createElement("input")
+            inputZip.setAttribute("type", "text")
+            inputZip.setAttribute("class", "form-control")
+            inputZip.setAttribute("id", "inputCity")
+            inputZip.setAttribute("placeholder", "State")
+        divZip.appendChild(inputZip)
     }
-
-
-
-
-
-
-
-
-    static fetchService() {
-
-        const options = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({service: {
-                kind: kind, 
-                kind_detail: kindDetail,
-
-            }})
-        }
-        const url = "http://localhost:3000/services"
-      
-        document.getElementById('serviceForm').innerHTML = ""
-      
-        fetch(url, options).then(r => r.json()).then(serviceObj => {
-            let newService = new Service(serviceObj.data)
-            newService.renderService()
-        })
-    }
-
-    renderService() {
-        let div = document.getElementById('service-container')
-        let h4 = document.createElement("h4")
-        h4.id = this.id
-        h4.innerText = this.kindDetail
-        // pgh.addEventListener('click', this.showList.bind(this))
-        div.append(h4)
-    }
-
-
-
-
 } 
