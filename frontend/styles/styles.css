@@ -75,3 +75,25 @@ button:hover {
 .step.finish {
   background-color: #4CAF50;
 }
+
+
+
+
+
+/* adding in my own customizations */
+
+div.btn-group-toggle {
+    margin: 25px ;
+}
+
+label.btn-outline-secondary {
+    margin: 10px ;
+}
+
+div.form-group {
+    margin-top: 25px;
+}
+
+select.custom-select {
+    margin-top: 25px;
+}
