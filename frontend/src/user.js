@@ -12,7 +12,48 @@ class User {
         User.currentUser.push(this)
     }
 
-    
+
+    //Rendering form tabs below
+
+    static renderUserTab() {
+        let personDiv = document.getElementById('person-tab-details')
+        let h5 = document.createElement("h5")
+            h5.innerText = `Let us gather additional information for an account:`
+        personDiv.appendChild(h5)
+
+        let pfn = document.createElement("p")
+        personDiv.appendChild(pfn)
+        let inputFN = document.createElement("input")
+            inputFN.setAttribute("type", "text")
+            inputFN.setAttribute("class", "form-control")
+            inputFN.setAttribute("placeholder", "First name...")
+        pfn.appendChild(inputFN)
+
+        let pln = document.createElement("p")
+        personDiv.appendChild(pln)
+        let inputLN = document.createElement("input")
+            inputLN.setAttribute("type", "text")
+            inputLN.setAttribute("class", "form-control")
+            inputLN.setAttribute("placeholder", "Last name...")
+        pln.appendChild(inputLN)
+
+        let pm = document.createElement("p")
+        personDiv.appendChild(pm)
+        let inputM = document.createElement("input")
+            inputM.setAttribute("type", "tel")
+            inputM.setAttribute("class", "form-control")
+            inputM.setAttribute("id", "phone")
+            inputM.setAttribute("pattern", "[0-9]{3}-[0-9]{2}-[0-9]{3}")
+            inputM.setAttribute("placeholder", "Mobile Phone")
+        pm.appendChild(inputM)
+
+        let ptm = document.createElement("p")
+            ptm.innerText = "We’ll send you a text message to confirm your appointment and to provide you with other updates, if need be."
+        personDiv.appendChild(ptm)
+    }
+
+
+
 
 
 
