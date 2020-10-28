@@ -1,6 +1,10 @@
-const form = document.getElementById('service-select')
+const serviceSelect = document.getElementById('category-select')
 
-form.addEventListener('click', Service.createService)
+serviceSelect.addEventListener("change", function() {
+    Service.renderIssueForm(serviceSelect.value)
+    Service.renderDetailsTab()
+    Service.renderPersonTab()
+})
 
 
 function titlecase(string) {
