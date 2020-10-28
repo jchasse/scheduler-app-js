@@ -11,19 +11,20 @@
    </head>
     <body>
 
-        <form id="regForm" action="https://www.w3schools.com/action_page.php">
+        <!-- <form id="regForm" action="https://www.w3schools.com/action_page.php"> -->
+        <form id="regForm">
             <h1>Scheduler:</h1>
             <!-- One "tab" for each step in the form: -->
-            <div class="tab"> Please start here to book your appointment: <br><br>
-
-                <select class="custom-select" id="service-select">
+            <div class="tab" id="service-tab-select"> 
+                <h5>Please start here to book your appointment:</h5>
+                <select class="custom-select" id="category-select">
                     <option value="none" selected disabled hidden> Category of Service </option> 
                     <option value="Electrical">Electrical</option>
                     <option value="HVAC">HVAC</option>
                     <option value="Plumbing">Plumbing</option>
                 </select> <br><br>
 
-                <select class="custom-select">
+                <select class="custom-select" id="service-select" >
                     <option value="none" selected disabled hidden> Type of Service</option>
                     <option value="Repair">Repair/Service</option>
                     <option value="Maintenance">Maintenance</option>
@@ -31,111 +32,38 @@
                 </select> <br><br>
             </div>
 
-            <div class="tab">How can we help? <br><br>
+            <div class="tab" id="issue-tab-select"></div>
+            <div class="tab" id="details-tab-select"></div>
+            <div class="tab" id="person-tab-details"></div>
 
-                Electrical <br><br>
-                <div class="btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-outline-secondary">
-                      <input type="checkbox" name= "Power Issue"> Power Issue
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "Surge Protection"> Surge Protection
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "Breaker Panel Replacement"> Breaker Panel Replacement
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "Interior Lighting"> Interior Lighting
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "Exterior Lighting"> Exterior Lighting
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "Generator Repair"> Generator Repair
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "Ceiling Fan"> Ceiling Fan
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "Other Electrical Issue"> Other Electrical Issue
-                    </label>
-                </div> <br>
-
-
-
-
-                HVAC <br><br>
-                <div class="btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-outline-secondary">
-                      <input type="checkbox" name= "No Heat"> No Heat
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "No Cool"> No Cool
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "AC Leaking Water"> AC Leaking Water
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "System Noise"> System Noise
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "Thermostat"> Thermostat
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "Air Quality Improvement"> Air Quality Improvement
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "Other HVAC Issue"> Other HVAC Issue
-                    </label>
-                </div> <br>
-
-                Plumbing <br><br>
-                <div class="btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-outline-secondary">
-                      <input type="checkbox" name= "No Heat"> Tank Water Heater Repair
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "No Heat"> Tankless Water Heater Repair
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "No Heat"> Tank Water Heater Replacement
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "No Heat"> Tankless Water Heater Replacement
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "No Heat"> Toilet Repair/Replace
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "No Heat"> Faucet Repair/Replace
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "No Heat"> Clogged Drain
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "No Heat"> Clogged Drain
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "No Heat"> Pipe Repair/Replace
-                    </label>
-                    <label class="btn btn-outline-secondary">
-                        <input type="checkbox" name= "No Heat"> Other Plumbing Issue
-                    </label>
-                </div> <br>
-
+            <div class="tab" id="location-tab-details">
+                <div class="form-group">
+                    <label for="inputAddress">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress2">Address 2</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="inputCity">
+                    </div>
+                    <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                    </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <input type="text" class="form-control" id="inputZip">
+                    </div>
+                  </div>
             </div>
 
-            </div>
-
-            <div class="tab">Birthday:
-                <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
-                <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
-                <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
-            </div>
-            <div class="tab">Login Info:
-                <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
-                <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
-            </div>
             <div style="overflow:auto;">
                 <div style="float:right;">
                 <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
@@ -144,6 +72,7 @@
             </div>
             <!-- Circles which indicates the steps of the form: -->
             <div style="text-align:center;margin-top:40px;">
+                <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
