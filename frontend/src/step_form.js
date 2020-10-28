@@ -34,7 +34,6 @@ function nextPrev(n) {
   currentTab = currentTab + n;
 
 //   if (allTabs[currentTab] === issue) {
-//     debugger
 //     Service.renderDetailsTab()
 //   } else {
 //       console.log("hello")
@@ -43,9 +42,13 @@ function nextPrev(n) {
   // if you have reached the end of the form...
   if (currentTab >= allTabs.length) {
     // ... the form gets submitted:
+    // let form = document.getElementById("regForm")
+    // form.addEventListener("click", Service.createService)
+
     document.getElementById("regForm").submit();
     debugger
-
+    Service.createService()
+    Location.createLocation()
     return false;
   }
   // Otherwise, display the correct tab:
@@ -76,7 +79,7 @@ function validateForm() {
 
 function fixStepIndicator(n) {
   // This function removes the "active" class of all steps...
-  var i, x = document.getElementsByClassName("step");
+  let i, x = document.getElementsByClassName("step");
   for (i = 0; i < x.length; i++) {
     x[i].className = x[i].className.replace(" active", "");
   }
