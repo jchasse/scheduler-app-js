@@ -22,17 +22,30 @@ function showTab(n) {
 
 function nextPrev(n) {
   // This function will figure out which tab to display
-  let x = document.getElementsByClassName("tab");
+  let allTabs = document.getElementsByClassName("tab");
+//   let issue = document.getElementById("details-tab-select")
+//   let person = document.getElementById("person-tab-details")
+//   let location = document.getElementById("location-tab-details")
   // Exit the function if any field in the current tab is invalid:
   if (n == 1 && !validateForm()) return false;
   // Hide the current tab:
-  x[currentTab].style.display = "none";
+  allTabs[currentTab].style.display = "none";
   // Increase or decrease the current tab by 1:
   currentTab = currentTab + n;
+
+//   if (allTabs[currentTab] === issue) {
+//     debugger
+//     Service.renderDetailsTab()
+//   } else {
+//       console.log("hello")
+//   }
+
   // if you have reached the end of the form...
-  if (currentTab >= x.length) {
+  if (currentTab >= allTabs.length) {
     // ... the form gets submitted:
     document.getElementById("regForm").submit();
+    debugger
+
     return false;
   }
   // Otherwise, display the correct tab:
