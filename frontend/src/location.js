@@ -4,16 +4,15 @@ class Location {
 
     constructor(location) {
         this.id = location.id
-        this.streetAddress = location.street_address  // update once Fast JSON is working
-        this.unit = location.unit  // update once Fast JSON is working
-        this.zip = location.zip
-        this.city = location.city
-        this.state = location.state
-        this.userId = location.user_id
+        this.streetAddress = location.attributes.street_address
+        this.unit = location.attributes.unit
+        this.zip = location.attributes.zip
+        this.city = location.attributes.city
+        this.state = location.attributes.state
+        this.userId = location.attributes.user_id
     }
 
-    static createLocation(user_id) {
-
+    static createLocation(userObj) {
         const streetAddress = document.getElementById("inputAddress").value
         const unit = document.getElementById("inputAddress2").value
         const city = document.getElementById("inputCity").value
@@ -28,20 +27,21 @@ class Location {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            body: JSON.stringify({service: {
+            body: JSON.stringify({location: {
                 street_address: streetAddress, 
                 unit: unit,
                 city: city,
                 state: state,
-                zip: zip
+                zip: zip,
+                user_id: userObj.id
             }})
         }
-
         fetch(url, options)
         .then(r => r.json())
         .then(locationObj => {
             let newLocation = new Location(locationObj.data)
             console.log(newLocation)
+            // do some action
         })
     }
 
