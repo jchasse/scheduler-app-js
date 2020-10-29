@@ -12,6 +12,37 @@ class User {
         User.currentUser.push(this)
     }
 
+    createUser() {
+        // let issueArray = []
+        // let issueCSV
+
+        const first_name = document.getElementById('category-select').value
+        const last_name = document.getElementById('service-select').value
+        const mobile_number = document.getElementById('details-select').value
+        const url = "http://localhost:3000/users"
+
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({user: {
+                first_name: this.firstName,
+                last_name: this.lastName,
+                mobile_number: mobileNumber 
+            }})
+        }
+
+        fetch(url, options)
+        .then(r => r.json())
+        .then(usereObj => {
+            let newUser = new User(userObj.data)
+            console.log(newUser)
+        })
+    }
+
+
 
     //Rendering form tabs below
 
