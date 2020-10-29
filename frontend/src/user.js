@@ -16,9 +16,9 @@ class User {
         // let issueArray = []
         // let issueCSV
 
-        const first_name = document.getElementById('category-select').value
-        const last_name = document.getElementById('service-select').value
-        const mobile_number = document.getElementById('details-select').value
+        const first_name = document.getElementById('firstName').value
+        const last_name = document.getElementById('lastName').value
+        const mobile_number = document.getElementById('phone').value
         const url = "http://localhost:3000/users"
 
         const options = {
@@ -56,6 +56,7 @@ class User {
         personDiv.appendChild(pfn)
         let inputFN = document.createElement("input")
             inputFN.setAttribute("type", "text")
+            inputFN.setAttribute("id", "firstName")
             inputFN.setAttribute("class", "form-control")
             inputFN.setAttribute("placeholder", "First name...")
         pfn.appendChild(inputFN)
@@ -64,6 +65,7 @@ class User {
         personDiv.appendChild(pln)
         let inputLN = document.createElement("input")
             inputLN.setAttribute("type", "text")
+            inputLN.setAttribute("id", "lastName")
             inputLN.setAttribute("class", "form-control")
             inputLN.setAttribute("placeholder", "Last name...")
         pln.appendChild(inputLN)
