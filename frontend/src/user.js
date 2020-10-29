@@ -4,21 +4,21 @@ class User {
 
     constructor(user) {
         this.id = user.id
-        this.firstName = user.first_name  // update once Fast JSON is working
-        this.lastName = user.last_name // update once Fast JSON is working
-        this.mobileNumber = user.mobileNumber
-        this.email = user.email
-        this.locations = user.attributes.locations.map(location => new Location(location))
+        this.firstName = user.attributes.first_name
+        this.lastName = user.attributes.last_name
+        this.mobileNumber = user.attributes.mobile_number
+        this.email = user.attributes.email
+        // this.locations = user.attributes.locations.map(location => new Location(location))
         User.currentUser.push(this)
     }
 
-    createUser() {
+    static createUser() {
         // let issueArray = []
         // let issueCSV
 
-        const first_name = document.getElementById('firstName').value
-        const last_name = document.getElementById('lastName').value
-        const mobile_number = document.getElementById('phone').value
+        const firstName = document.getElementById('firstName').value
+        const lastName = document.getElementById('lastName').value
+        const mobileNumber = document.getElementById('phone').value
         const url = "http://localhost:3000/users"
 
         const options = {
@@ -28,17 +28,18 @@ class User {
                 "Accept": "application/json"
             },
             body: JSON.stringify({user: {
-                first_name: this.firstName,
-                last_name: this.lastName,
-                mobile_number: mobileNumber 
+                first_name: firstName,
+                last_name: lastName,
+                mobile_number: mobileNumber
             }})
         }
 
         fetch(url, options)
         .then(r => r.json())
-        .then(usereObj => {
+        .then(userObj => {
             let newUser = new User(userObj.data)
             console.log(newUser)
+            Location.createLocation(newUser)
         })
     }
 
