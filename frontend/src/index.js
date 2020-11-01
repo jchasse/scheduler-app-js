@@ -52,3 +52,7 @@ function resetForm() {
     if (Location.allLocations.length !== 0) Location.showLocationsNavbar()
 }
 
+function clearForm() {
+    let form = document.getElementById('main-form')
+    form.innerHTML = ""
+}
