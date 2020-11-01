@@ -11,12 +11,10 @@ class LocationsController < ApplicationController
         render json: LocationSerializer.new(location)
     end
 
-
-    def show
+    def update
         location = Location.find_by(id: params[:id])
-        render json: location.to_json(:include => {
-            :user => {:only => [:first_name, :last_name, :mobile_number, :email]}
-        }, :except => [:updated_at])
+        location.update(location_params)
+        render json: LocationSerializer.new(location)
     end
 
     private
