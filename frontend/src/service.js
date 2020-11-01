@@ -90,8 +90,46 @@ class Service {
                 Service.addIssueSelect(serviceSelect.value)
             })
 
+        let optionNone = document.createElement("option")
+            optionNone.value = "none"
+            optionNone.selected = true
+            optionNone.disabled = true
+            optionNone.hidden = true
+            optionNone.innerText = "Category of Service"
+        select.appendChild(optionNone)
 
-    static renderIssueForm(kind) {
+        for (let i = 0; i < categories.length; i++) {
+            let option = document.createElement("option")
+                option.value = `category${i+1}`
+                option.innerText = categories[i]
+            select.appendChild(option)
+        }
+    }
+
+    static addSubCategorySelect() {
+        let subcategories = ["Repair/Service", "Maintenance", "Estimate for Replacement"]
+        let div = document.getElementById("service-tab")
+
+        let selectSub = document.createElement("select")
+            selectSub.setAttribute("class", "custom-select")
+            selectSub.setAttribute("id", "service-select")
+        div.appendChild(selectSub)
+
+        let optionNoneSub = document.createElement("option")
+            optionNoneSub.value = "none"
+            optionNoneSub.selected = true
+            optionNoneSub.disabled = true
+            optionNoneSub.hidden = true
+            optionNoneSub.innerText = "Type of Service"
+        selectSub.appendChild(optionNoneSub)
+
+        for (let i = 0; i < subcategories.length; i++) {
+            let option = document.createElement("option")
+                option.value = `subCategory${i+1}`
+                option.innerText = subcategories[i]
+            selectSub.appendChild(option)
+        }
+    }
 
         let electricalOptions = ["Power Issue", "Surge Protection", "Breaker Panel Replacement", "Interior Lighting", "Exterior Lighting", "Generator Repair", "Ceiling Fan", "Other Electrical Issue" ]
         let plumbingOptions = ["Tank Water Heater Repair", "Tankless Water Heater Repair", "Tank Water Heater Replacement", "Tankless Water Heater Replacement", "Toilet Repair/Replace", "Faucet Repair/Replace", "Clogged Drain", "Pipe Repair/Replace", "Other Plumbing Issue" ]
