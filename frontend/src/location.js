@@ -158,6 +158,39 @@ class Location {
         form.appendChild(h1)
     }
 
+    showLocationCard() {
+        let form = document.getElementById("main-form")    
+        let div = document.createElement("div")
+            div.setAttribute("class", "card")
+            div.setAttribute("data-id", `${this.id}`)
+        form.appendChild(div)
+        let h5 = document.createElement("h5")
+            h5.setAttribute("class", "card-header")
+            h5.innerText = `${this.id}`
+        div.appendChild(h5)
+        let div2 = document.createElement("div")
+            div2.setAttribute("class", "card-body")
+        div.appendChild(div2)
+        let p = document.createElement("p") 
+            p.setAttribute("class", "card-text")
+            p.innerText = this.streetAddress
+        div2.appendChild(p)
+        let p2 = document.createElement("p") 
+            p2.setAttribute("class", "card-text")
+            p2.innerText = this.unit
+        div2.appendChild(p2)  
+        let p3 = document.createElement("p") 
+            p3.setAttribute("class", "card-text")
+            p3.innerText = `${this.city}, ${this.state} ${this.zip}`
+        div2.appendChild(p3)
+        let a = document.createElement("a")
+            a.setAttribute("href", "#")
+            a.setAttribute("class", "btn btn-secondary")
+            a.innerText = "Edit"
+            a.addEventListener("click", this.showLocationEdit.bind(this))
+        div.appendChild(a)
+    }
+
 
     static renderLocationTab() {
         let locationDiv = document.getElementById('location-tab-details')
