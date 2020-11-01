@@ -191,9 +191,23 @@ class Location {
         div.appendChild(a)
     }
 
+    static showLocationsNavbar() {
+        let priorLocation = document.getElementById("locations-list")
+        if (priorLocation != null) priorLocation.remove()
 
-    static renderLocationTab() {
-        let locationDiv = document.getElementById('location-tab-details')
+        let ul = document.getElementById("navbarTogglerId")
+        let li = document.createElement("li")
+            li.setAttribute("class", "nav-item")
+        ul.appendChild(li)    
+        let a = document.createElement("a")
+            a.setAttribute("class", "nav-link")
+            a.setAttribute("href", "#")
+            a.id = "locations-list"
+            a.innerText= "My Locations"
+            a.addEventListener("click", Location.displayLocations)
+        li.appendChild(a)
+    }
+
 
         let div1 = document.createElement("div")
             div1.setAttribute("class", "form-group")
