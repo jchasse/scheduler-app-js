@@ -148,17 +148,17 @@ class Service {
             div.setAttribute("id", "issue-select")
         issueDiv.appendChild(div)
      
-        if (kind === "Electrical") {
-            for (const issue of electricalOptions) {
-                Service.renderIssueOptions(issue)
+        if (kind === "category1") {
+            for (const issue of option1) {
+                Service.addIssueOptions(issue)
             } 
-        } else if (kind === "Plumbing") {
-            for (const issue of plumbingOptions) {
-                Service.renderIssueOptions(issue)
+        } else if (kind === "category2") {
+            for (const issue of option2) {
+                Service.addIssueOptions(issue)
             } 
-        } else if (kind === "HVAC") {
-            for (const issue of hvacOptions) {
-                Service.renderIssueOptions(issue)
+        } else if (kind === "category3") {
+            for (const issue of option3) {
+                Service.addIssueOptions(issue)
             } 
         }
     }
