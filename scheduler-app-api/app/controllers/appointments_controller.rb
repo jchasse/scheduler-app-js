@@ -2,7 +2,8 @@ class AppointmentsController < ApplicationController
 
     def index
         appointments = Appointment.all
-        render json: appointments, include: [:user, :location]
+        render json: appointments, include: [:technician, :location]
+        # render json: AppointmentSerializer.new(user)
     end
 
     def show
