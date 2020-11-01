@@ -83,18 +83,19 @@ function nextPrev(n) {
 }
 
 function validateForm() {
-  // This function deals with validation of the form fields
-  var x, y, i, valid = true;
-  x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
-  // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false
-      valid = false;
+    let valid = true
+    let allTabs = document.getElementsByClassName("tab")
+    let inputs = allTabs[currentTab].getElementsByTagName("input")
+    let step = document.getElementsByClassName("step")
+
+    for (let i = 0; i < inputs.length; i++) {
+      if (inputs[i].value == "") {
+        inputs[i].className += " invalid"
+        valid = false
+      }
+    }
+    if (valid) {
+      step[currentTab].className += " finish"
     }
   }
   // If the valid status is true, mark the step as finished and valid:
