@@ -81,6 +81,15 @@ class Location {
         showTab(currentTab)
     }
 
+    static showLocationNew() {
+        resetForm()
+        Location.addLocationTab()
+        Location.addLocationInputs()
+        addFormButtons()
+        addSteps()
+        showTab(currentTab)
+    }
+
 
     //Rendering form tabs below
 
