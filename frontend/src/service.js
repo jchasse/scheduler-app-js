@@ -47,14 +47,8 @@ class Service {
         })
     }
 
-    renderService() {
-        // SHOW ALL APPOINTMENTS
-        let div = document.getElementById('service-container')
-        let h4 = document.createElement("h4")
-        h4.id = this.id
-        h4.innerText = this.kindDetail
-        // pgh.addEventListener('click', this.showList.bind(this))
-        div.append(h4)
+    //Rendering form tabs below
+
     }
 
     //Rendering form tabs below
