@@ -65,6 +65,31 @@ class Service {
         form.appendChild(div)
     }
 
+    static addDetalsTab() {
+        let form = document.getElementById("main-form")    
+        let div = document.createElement("div")
+            div.setAttribute("class", "tab")
+            div.setAttribute("id", "details-tab")
+        form.appendChild(div)
+    }
+
+    static addServiceSelect() {
+        let div = document.getElementById("service-tab")
+        let categories = ["Electrical", "HVAC", "Plumbing"]
+
+        let h5 = document.createElement("h5")
+            h5.innerText = "Please start here to book your appointment:"
+        div.appendChild(h5)
+
+        let select = document.createElement("select")
+            select.setAttribute("class", "custom-select")
+            select.setAttribute("id", "category-select")
+        div.appendChild(select)    
+            select.addEventListener("change", function() {
+                const serviceSelect = document.getElementById('category-select')
+                Service.addIssueSelect(serviceSelect.value)
+            })
+
 
     static renderIssueForm(kind) {
 
