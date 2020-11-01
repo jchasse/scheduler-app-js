@@ -138,6 +138,8 @@ class Service {
         let option1 = ["Cat1-Issue1", "Cat1-Issue2", "Cat1-Issue3", "Cat1-Issue4", "Cat1-Issue5"]
         let option2 = ["Cat2-Issue1", "Cat2-Issue2", "Cat2-Issue3", "Cat2-Issue4", "Cat2-Issue5"]
         let option3 = ["Cat3-Issue1", "Cat3-Issue2", "Cat3-Issue3", "Cat3-Issue4", "Cat3-Issue5"]
+
+        let issueDiv = document.getElementById('issue-tab')
         let h5 = document.createElement("h5")
             h5.innerText = `How can we help with your ${kind} issue?`
         issueDiv.appendChild(h5)
@@ -163,7 +165,7 @@ class Service {
         }
     }
 
-    static renderIssueOptions(issue) {
+    static addIssueOptions(issue) {
         let div = document.getElementById("issue-select")
         let label = document.createElement("label")
             label.setAttribute("class", "btn btn-outline-secondary")
@@ -175,10 +177,10 @@ class Service {
         label.appendChild(input)
     }
 
-    static renderDetailsTab() {
-        let detailsDiv = document.getElementById('details-tab-select')
+    static addDetailsTextarea() {
+        let detailsDiv = document.getElementById('details-tab')
         let detailsH5 = document.createElement("h5")
-            detailsH5.innerText = `Any additional details you would like to share? [equipment history, accessibility, special requests]`
+            detailsH5.innerText = `Any additional details you would like to share?`
         detailsDiv.appendChild(detailsH5)
         
         let div2 = document.createElement("div")
