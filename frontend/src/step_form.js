@@ -1,7 +1,32 @@
-let currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the crurrent tab
 let currentTab = 0
 
+// render form buttons and steps
+
+function addFormButtons() {
+    let form = document.getElementById("main-form")
+    let divStyle = document.createElement("div")
+        divStyle.style = "overflow:auto;"
+        divStyle.id = "div-style"
+    form.appendChild(divStyle)
+    let divStyle2 = document.createElement("div")
+        divStyle2.style = "float:right;"
+        divStyle2.id = "button-div"
+    divStyle.appendChild(divStyle2)
+    let prevBtn = document.createElement("button")
+        prevBtn.type = "button"
+        prevBtn.setAttribute("class", "button")
+        prevBtn.id = "prevBtn"
+        prevBtn.setAttribute("onclick", "nextPrev(-1)")
+        prevBtn.innerText = "Previous"
+    divStyle2.appendChild(prevBtn)
+    let nextBtn = document.createElement("button")
+        nextBtn.type = "button"
+        nextBtn.setAttribute("class", "button")
+        nextBtn.id = "nextBtn"
+        nextBtn.setAttribute("onclick", "nextPrev(1)")
+        nextBtn.innerText = "Next"
+    divStyle2.appendChild(nextBtn)
+}
 function showTab(n) {
   // This function will display the specified tab of the form...
   let x = document.getElementsByClassName("tab");
