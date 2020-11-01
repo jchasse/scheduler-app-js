@@ -39,7 +39,7 @@ class Service {
             }})
         }
 
-        fetch(url, options)
+        return fetch(url, options)
         .then(r => r.json())
         .then(serviceObj => {
             let newService = new Service(serviceObj.data)
