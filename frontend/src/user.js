@@ -40,6 +40,16 @@ class User {
             })
     }
 
+    showUserEdit() {
+        resetForm()
+        User.addUserTab()
+        User.addUserInputs()
+        User.currentUser.fillUserForm()
+        addFormButtons()
+        addSteps()
+        showTab(currentTab)
+    }
+
 
 
     //Rendering form tabs below
