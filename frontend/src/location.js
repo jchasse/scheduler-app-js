@@ -140,8 +140,17 @@ class Location {
     }
 
 
+    //Rendering tabs/links below
 
-    //Rendering form tabs below
+    addLocationId() {
+        let div = document.getElementById("location-tab")
+        let p = document.createElement("p")
+            p.setAttribute("id", "location-id" )
+            p.innerText = this.id
+            p.hidden = true   
+        div.appendChild(p)
+    }
+
 
     static renderLocationTab() {
         let locationDiv = document.getElementById('location-tab-details')
