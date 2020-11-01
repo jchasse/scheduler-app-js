@@ -10,6 +10,7 @@ class Location {
         this.city = location.attributes.city
         this.state = location.attributes.state
         this.userId = location.attributes.user_id
+        Location.allLocations.push(this)
     }
 
     static createLocation() {
@@ -40,9 +41,15 @@ class Location {
         .then(locationObj => {
             let newLocation = new Location(locationObj.data)
             console.log(newLocation)
-            // do some action
             Location.displayLocations()
         })
+    }
+
+    static displayLocations() {
+        clearForm()
+        Location.addLocationHeading()
+        Location.fetchUserLocations()
+        .then( () =>Location.renderLocations() )
     }
 
 
