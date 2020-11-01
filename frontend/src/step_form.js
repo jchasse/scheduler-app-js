@@ -61,38 +61,25 @@ function showTab(n) {
 }
 
 function nextPrev(n) {
-  // This function will figure out which tab to display
-  let allTabs = document.getElementsByClassName("tab");
-//   let issue = document.getElementById("details-tab-select")
-//   let person = document.getElementById("person-tab-details")
-//   let location = document.getElementById("location-tab-details")
-  // Exit the function if any field in the current tab is invalid:
-  if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
-  allTabs[currentTab].style.display = "none";
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
+    let allTabs = document.getElementsByClassName("tab")
+    let userTab = document.getElementById('user-tab')
+    let locationTab = document.getElementById('location-tab')
 
-//   if (allTabs[currentTab] === issue) {
-//     Service.renderDetailsTab()
-//   } else {
-//       console.log("hello")
-//   }
+    if (n == 1 && !validateForm()) return false
 
-  // if you have reached the end of the form...
-  if (currentTab >= allTabs.length) {
-    // ... the form gets submitted:
-    // let form = document.getElementById("regForm")
-    // form.addEventListener("click", Service.createService)
+    allTabs[currentTab].style.display = "none"
+    currentTab = currentTab + n;
 
-    document.getElementById("regForm").submit();
-    debugger
-    Service.createService()
-    Location.createLocation()
-    return false;
-  }
-  // Otherwise, display the correct tab:
-  showTab(currentTab);
+    if (allTabs.length === 1 && allTabs[0]=== userTab) {
+        return User.updateUser()
+    } else if (allTabs.length === 1 && allTabs[0]=== locationTab && document.getElementById('location-id') === null) {
+        return Location.createLocation()
+    } else if (allTabs.length === 1 && allTabs[0]=== locationTab) {
+        return Location.updateLocation()
+    } else if (currentTab >= allTabs.length) {
+        return createService()
+    }
+    showTab(currentTab)
 }
 
 function validateForm() {
