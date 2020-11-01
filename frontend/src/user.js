@@ -1,6 +1,6 @@
 class User {
     
-    static currentUser = []
+    static currentUser
 
     constructor(user) {
         this.id = user.id
@@ -9,13 +9,10 @@ class User {
         this.mobileNumber = user.attributes.mobile_number
         this.email = user.attributes.email
         // this.locations = user.attributes.locations.map(location => new Location(location))
-        User.currentUser.push(this)
+        User.currentUser = this
     }
 
     static createUser() {
-        // let issueArray = []
-        // let issueCSV
-
         const firstName = document.getElementById('firstName').value
         const lastName = document.getElementById('lastName').value
         const mobileNumber = document.getElementById('phone').value
