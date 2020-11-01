@@ -70,6 +70,17 @@ class Location {
         Location.showNewLocationCard()    
     }
 
+    showLocationEdit() {
+        resetForm()
+        Location.addLocationTab()
+        Location.addLocationInputs()
+        this.addLocationId()
+        this.fillLocationForm()
+        addFormButtons()
+        addSteps()
+        showTab(currentTab)
+    }
+
 
     //Rendering form tabs below
 
