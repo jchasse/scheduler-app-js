@@ -103,6 +103,43 @@ class Location {
         zip.value = this.zip
     }
 
+    static updateLocation() {
+        const userId = User.currentUser.id
+        const id = document.getElementById('location-id').innerText
+        const streetAddress = document.getElementById("inputAddress").value
+        const unit = document.getElementById("inputAddress2").value
+        const city = document.getElementById("inputCity").value
+        const state = document.getElementById("inputState").value
+        const zip = document.getElementById("inputZip").value
+
+        const url = `http://localhost:3000/users/${userId}/locations/${id}`
+
+        const options = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({location: {
+                street_address: streetAddress, 
+                unit: unit,
+                city: city,
+                state: state,
+                zip: zip
+            }})
+        }
+        return fetch(url, options)
+        .then(r => r.json())
+        .then(locationObj => {
+            let updatedLocation = new Location(locationObj.data)
+            let index = this.allLocations.findIndex( () => location.id === locationObj.id)
+            this.allLocations[index] = updatedLocation
+            this.allLocations.pop()
+            Location.displayLocations()
+        })
+    }
+
+
 
     //Rendering form tabs below
 
