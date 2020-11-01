@@ -6,8 +6,8 @@ class LocationsController < ApplicationController
     end
 
     def create
-        byebug
-        location = Location.create(location_params)
+        user = User.find_by(id: params[:user_id])
+        location = user.locations.create(location_params)
         render json: LocationSerializer.new(location)
     end
 
