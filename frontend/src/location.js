@@ -63,6 +63,13 @@ class Location {
         })
     }
 
+    static renderLocations() {
+        for (let location of this.allLocations) {
+            location.showLocationCard()
+        }
+        Location.showNewLocationCard()    
+    }
+
 
     //Rendering form tabs below
 
