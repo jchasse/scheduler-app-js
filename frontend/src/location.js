@@ -12,14 +12,14 @@ class Location {
         this.userId = location.attributes.user_id
     }
 
-    static createLocation(userObj) {
+    static createLocation() {
         const streetAddress = document.getElementById("inputAddress").value
         const unit = document.getElementById("inputAddress2").value
         const city = document.getElementById("inputCity").value
         const state = document.getElementById("inputState").value
         const zip = document.getElementById("inputZip").value
 
-        const url = "http://localhost:3000/locations"
+        const url = `http://localhost:3000/users/${User.currentUser.id}/locations`
 
         const options = {
             method: "POST",
@@ -32,8 +32,7 @@ class Location {
                 unit: unit,
                 city: city,
                 state: state,
-                zip: zip,
-                user_id: userObj.id
+                zip: zip
             }})
         }
         fetch(url, options)
