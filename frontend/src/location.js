@@ -269,10 +269,22 @@ class Location {
             inputZip.setAttribute("type", "text")
             inputZip.setAttribute("class", "form-control")
             inputZip.setAttribute("id", "inputZip")
-            inputZip.setAttribute("placeholder", "State")
+            inputZip.setAttribute("placeholder", "Zip")
         divZip.appendChild(inputZip)
     }
 
+    static showNewLocationCard() {
+        let form = document.getElementById("main-form")    
+        let div = document.createElement("div")
+            div.setAttribute("class", "card")
+        form.appendChild(div)
+        let a = document.createElement("a")
+            a.setAttribute("href", "#")
+            a.setAttribute("class", "btn btn-secondary")
+            a.innerText = "Add New Location"
+            a.addEventListener("click", this.showLocationNew)
+        div.appendChild(a)
+    }
 
 
 
