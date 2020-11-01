@@ -31,3 +31,17 @@ function setFormLink() {
     })
 }
 
+function createService() {
+    if (User.currentUser != null && Location.allLocations != []) {
+        Service.createService()
+        .then( () => resetForm())
+        .then( () => Location.displayLocations())
+    } else {
+        User.createUser()
+        .then( newUser => Location.createLocation(newUser))
+        .then( () => Service.createService())
+        .then( () => resetForm())
+        .then( () => Location.displayLocations())
+    }
+}
+
