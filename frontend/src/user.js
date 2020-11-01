@@ -92,6 +92,8 @@ class User {
 
     static renderUserTab() {
         let personDiv = document.getElementById('person-tab-details')
+    static addUserInputs() {
+        let personDiv = document.getElementById('user-tab')
         let h5 = document.createElement("h5")
             h5.innerText = `Let us gather additional information for an account:`
         personDiv.appendChild(h5)
