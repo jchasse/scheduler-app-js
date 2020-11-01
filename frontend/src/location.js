@@ -208,6 +208,16 @@ class Location {
         li.appendChild(a)
     }
 
+    static addLocationTab() {
+        let form = document.getElementById("main-form")    
+        let div = document.createElement("div")
+            div.setAttribute("class", "tab")
+            div.setAttribute("id", "location-tab")
+        form.appendChild(div)
+    }
+
+    static addLocationInputs() {
+        let locationDiv = document.getElementById('location-tab')
 
         let div1 = document.createElement("div")
             div1.setAttribute("class", "form-group")
