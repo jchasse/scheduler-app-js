@@ -89,6 +89,13 @@ class User {
             })
     }
 
+    static addUserTab() {
+        let form = document.getElementById("main-form")    
+        let div = document.createElement("div")
+            div.setAttribute("class", "tab")
+            div.setAttribute("id", "user-tab")
+        form.appendChild(div)
+    }
 
     static addUserInputs() {
         let personDiv = document.getElementById('user-tab')
