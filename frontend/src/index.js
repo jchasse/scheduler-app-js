@@ -3,3 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
     setAllTabs()
 })
 
+function setAllTabs() {
+    Service.addServiceTab()
+    Service.addIssueTab()
+    Service.addDetalsTab()
+    if (User.currentUser == undefined) User.addUserTab()
+    if (Location.allLocations.length === 0) Location.addLocationTab()
+    initializeForm()
+}
+
