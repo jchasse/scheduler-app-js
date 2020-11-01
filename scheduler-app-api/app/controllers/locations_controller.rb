@@ -1,8 +1,8 @@
 class LocationsController < ApplicationController
     def index
-        locations = Location.all
-        render json: locations
-        # render json: LocationSerializer.new(locations).to_serialized_json
+        user = User.all.find_by(id: params[:user_id])
+        locations = user.locations
+        render json: LocationSerializer.new(locations)
     end
 
     def create
