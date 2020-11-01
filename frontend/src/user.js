@@ -31,13 +31,13 @@ class User {
             }})
         }
 
-        fetch(url, options)
-        .then(r => r.json())
-        .then(userObj => {
-            let newUser = new User(userObj.data)
-            console.log(newUser)
-            Location.createLocation(newUser)
-        })
+            return fetch(url, options)
+            .then(r => r.json())
+            .then(userObj => {
+                let newUser = new User(userObj.data)
+                console.log(newUser)
+                return newUser
+            })
     }
 
 
