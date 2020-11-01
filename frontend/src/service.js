@@ -131,11 +131,13 @@ class Service {
         }
     }
 
-        let electricalOptions = ["Power Issue", "Surge Protection", "Breaker Panel Replacement", "Interior Lighting", "Exterior Lighting", "Generator Repair", "Ceiling Fan", "Other Electrical Issue" ]
-        let plumbingOptions = ["Tank Water Heater Repair", "Tankless Water Heater Repair", "Tank Water Heater Replacement", "Tankless Water Heater Replacement", "Toilet Repair/Replace", "Faucet Repair/Replace", "Clogged Drain", "Pipe Repair/Replace", "Other Plumbing Issue" ]
-        let hvacOptions = ["No Heat", "No Cool", "AC Leaking Water", "System Noise", "Thermostat", "Air Quality Improvement", "Other HVAC Issue" ]
-
-        let issueDiv = document.getElementById('issue-tab-select')
+    static addIssueSelect(kind) {
+        // let option1 =["Power Issue", "Surge Protection", "Breaker Panel Replacement", "Interior Lighting", "Exterior Lighting", "Generator Repair", "Ceiling Fan", "Other Electrical Issue" ]
+        // let option2 = ["Tank Water Heater Repair", "Tankless Water Heater Repair", "Tank Water Heater Replacement", "Tankless Water Heater Replacement", "Toilet Repair/Replace", "Faucet Repair/Replace", "Clogged Drain", "Pipe Repair/Replace", "Other Plumbing Issue" ]
+        // let option3 = ["No Heat", "No Cool", "AC Leaking Water", "System Noise", "Thermostat", "Air Quality Improvement", "Other HVAC Issue" ]
+        let option1 = ["Cat1-Issue1", "Cat1-Issue2", "Cat1-Issue3", "Cat1-Issue4", "Cat1-Issue5"]
+        let option2 = ["Cat2-Issue1", "Cat2-Issue2", "Cat2-Issue3", "Cat2-Issue4", "Cat2-Issue5"]
+        let option3 = ["Cat3-Issue1", "Cat3-Issue2", "Cat3-Issue3", "Cat3-Issue4", "Cat3-Issue5"]
         let h5 = document.createElement("h5")
             h5.innerText = `How can we help with your ${kind} issue?`
         issueDiv.appendChild(h5)
