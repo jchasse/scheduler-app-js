@@ -12,3 +12,11 @@ function setAllTabs() {
     initializeForm()
 }
 
+function initializeForm() {
+    Service.addServiceSelect()
+    Service.addSubCategorySelect()
+    Service.addDetailsTextarea()
+    addFormButtons()
+    addSteps()
+    showTab(currentTab) 
+}
