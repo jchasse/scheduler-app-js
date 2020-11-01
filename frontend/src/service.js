@@ -49,6 +49,12 @@ class Service {
 
     //Rendering form tabs below
 
+    static addServiceTab() {
+        let form = document.getElementById("main-form")    
+        let div = document.createElement("div")
+            div.setAttribute("class", "tab")
+            div.setAttribute("id", "service-tab")
+        form.appendChild(div)
     }
 
     //Rendering form tabs below
