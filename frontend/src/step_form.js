@@ -97,12 +97,7 @@ function validateForm() {
     if (valid) {
       step[currentTab].className += " finish"
     }
-  }
-  // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
-  }
-  return valid; // return the valid status
+    return valid
 }
 
 function fixStepIndicator(n) { 
