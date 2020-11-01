@@ -1,6 +1,6 @@
 class Location {
     
-    // static allLocations = []
+    static allLocations = []
 
     constructor(location) {
         this.id = location.id
