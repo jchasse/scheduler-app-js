@@ -90,6 +90,19 @@ class Location {
         showTab(currentTab)
     }
 
+    fillLocationForm() {
+        let streetAddress = document.getElementById("inputAddress")
+        let unit = document.getElementById("inputAddress2")
+        let city = document.getElementById("inputCity")
+        let state = document.getElementById("inputState")
+        let zip = document.getElementById("inputZip")
+        streetAddress.value = this.streetAddress
+        unit.value = this.unit
+        city.value = this.city
+        state.value = this.state
+        zip.value = this.zip
+    }
+
 
     //Rendering form tabs below
 
