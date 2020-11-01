@@ -16,6 +16,8 @@ function initializeForm() {
     Service.addServiceSelect()
     Service.addSubCategorySelect()
     Service.addDetailsTextarea()
+    if (User.currentUser == undefined) User.addUserInputs()
+    if (Location.allLocations.length === 0) Location.addLocationInputs()
     addFormButtons()
     addSteps()
     showTab(currentTab) 
