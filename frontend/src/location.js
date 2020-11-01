@@ -52,6 +52,16 @@ class Location {
         .then( () =>Location.renderLocations() )
     }
 
+    static fetchUserLocations() {
+        Location.allLocations = []
+        const url = `http://localhost:3000/users/${User.currentUser.id}/locations`
+
+        return fetch(url)
+        .then(r => r.json())
+        .then(locations => {
+          for (let location of locations.data) new Location(location)
+        })
+    }
 
 
     //Rendering form tabs below
