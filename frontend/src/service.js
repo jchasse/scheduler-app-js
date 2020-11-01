@@ -57,7 +57,14 @@ class Service {
         form.appendChild(div)
     }
 
-    //Rendering form tabs below
+    static addIssueTab() {
+        let form = document.getElementById("main-form")    
+        let div = document.createElement("div")
+            div.setAttribute("class", "tab")
+            div.setAttribute("id", "issue-tab")
+        form.appendChild(div)
+    }
+
 
     static renderIssueForm(kind) {
 
