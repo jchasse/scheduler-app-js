@@ -90,8 +90,6 @@ class User {
     }
 
 
-    static renderUserTab() {
-        let personDiv = document.getElementById('person-tab-details')
     static addUserInputs() {
         let personDiv = document.getElementById('user-tab')
         let h5 = document.createElement("h5")
