@@ -22,3 +22,12 @@ function initializeForm() {
     addSteps()
     showTab(currentTab) 
 }
+
+function setFormLink() {
+    let scheduler = document.getElementById("scheduler-home")
+    scheduler.addEventListener('click', function() {
+        resetForm()
+        setAllTabs()
+    })
+}
+
