@@ -27,6 +27,22 @@ function addFormButtons() {
         nextBtn.innerText = "Next"
     divStyle2.appendChild(nextBtn)
 }
+
+function addSteps() {
+    let allTabs = document.getElementsByClassName("tab")
+    let divStyle = document.getElementById("div-style")
+
+    let divStep = document.createElement("div")
+        divStep.style = "text-align:center;margin-top:40px;"
+    divStyle.appendChild(divStep)
+    
+    for (let i = 0; i < allTabs.length; i++) {
+        let span = document.createElement("span")
+            span.setAttribute("class", "step")
+        divStep.appendChild(span)
+    }
+}
+
 function showTab(n) {
   // This function will display the specified tab of the form...
   let x = document.getElementsByClassName("tab");
