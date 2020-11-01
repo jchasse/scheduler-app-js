@@ -9,7 +9,7 @@ class AppointmentsController < ApplicationController
     def show
         appointment = Appointment.find_by(id: params[:id])
         render json: appointment.to_json(:include => {
-            :user => {:only => [:first_name, :last_name, :mobile_phone, :email]},
+            :technician => {:only => [:first_name, :last_name]},
             :location => {:only => [:street_address, :unit, :zip, :city, :zip]}
         }, :except => [:updated_at])
     end
