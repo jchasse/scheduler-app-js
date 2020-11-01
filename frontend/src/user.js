@@ -50,9 +50,45 @@ class User {
         showTab(currentTab)
     }
 
+    fillUserForm() {
+        let firstName = document.getElementById("firstName")
+        let lastName = document.getElementById("lastName")
+        let phone = document.getElementById("phone")
+        firstName.value = this.firstName
+        lastName.value = this.lastName
+        phone.value = this.mobileNumber
+    }
 
+    static updateUser() {
+        const id = User.currentUser.id
+        const firstName = document.getElementById('firstName').value
+        const lastName = document.getElementById('lastName').value
+        const mobileNumber = document.getElementById('phone').value
+        const url = `http://localhost:3000/users/${id}`
 
-    //Rendering form tabs below
+        const options = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({user: {
+                first_name: firstName,
+                last_name: lastName,
+                mobile_number: mobileNumber
+            }})
+        }
+
+            return fetch(url, options)
+            .then(r => r.json())
+            .then(userObj => {
+                let currentUser = new User(userObj.data)
+                console.log(currentUser)
+                resetForm()
+                Location.displayLocations()
+            })
+    }
+
 
     static renderUserTab() {
         let personDiv = document.getElementById('person-tab-details')
