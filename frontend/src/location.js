@@ -151,6 +151,13 @@ class Location {
         div.appendChild(p)
     }
 
+    static addLocationHeading() {
+        let form = document.getElementById("main-form")
+        let h1 = document.createElement("h1")
+            h1.innerText = 'My Locations'
+        form.appendChild(h1)
+    }
+
 
     static renderLocationTab() {
         let locationDiv = document.getElementById('location-tab-details')
