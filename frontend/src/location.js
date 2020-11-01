@@ -35,12 +35,13 @@ class Location {
                 zip: zip
             }})
         }
-        fetch(url, options)
+        return fetch(url, options)
         .then(r => r.json())
         .then(locationObj => {
             let newLocation = new Location(locationObj.data)
             console.log(newLocation)
             // do some action
+            Location.displayLocations()
         })
     }
 
