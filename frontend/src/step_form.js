@@ -1,5 +1,6 @@
 let currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
+let currentTab = 0
 
 function showTab(n) {
   // This function will display the specified tab of the form...
