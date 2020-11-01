@@ -45,3 +45,10 @@ function createService() {
     }
 }
 
+function resetForm() {
+    currentTab = 0
+    clearForm()
+    if (User.currentUser) User.showUserNavbar()
+    if (Location.allLocations.length !== 0) Location.showLocationsNavbar()
+}
+
