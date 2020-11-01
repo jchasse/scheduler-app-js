@@ -43,23 +43,21 @@ function addSteps() {
     }
 }
 
+// form functionality
+
 function showTab(n) {
-  // This function will display the specified tab of the form...
-  let x = document.getElementsByClassName("tab");
-  x[n].style.display = "block";
-  //... and fix the Previous/Next buttons:
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
-  }
-  //... and run a function that will display the correct step indicator:
-  fixStepIndicator(n)
+    let allTabs = document.getElementsByClassName("tab")
+    let prevBtn = document.getElementById("prevBtn")
+    let nextBtn = document.getElementById("nextBtn")
+
+    allTabs[n].style.display = "block"
+    if (n == 0) {prevBtn.style.display = "none" } 
+    else {prevBtn.style.display = "inline"}
+
+    if (n == (allTabs.length - 1)) {nextBtn.innerHTML = "Submit"} 
+    else {nextBtn.innerHTML = "Next"}
+
+    fixStepIndicator(n)
 }
 
 function nextPrev(n) {
