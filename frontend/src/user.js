@@ -89,6 +89,25 @@ class User {
             })
     }
 
+    //Rendering form tabs/links below
+
+    static showUserNavbar() {
+        let priorUser = document.getElementById("user-account")
+        if (priorUser != null) priorUser.remove()
+    
+        let ul = document.getElementById("navbarTogglerId")
+        let li = document.createElement("li")
+            li.setAttribute("class", "nav-item")
+        ul.appendChild(li)    
+        let a = document.createElement("a")
+            a.setAttribute("class", "nav-link")
+            a.setAttribute("href", "#")
+            a.id = "user-account"
+            a.innerText= `${User.currentUser.firstName}'s Account`
+            a.addEventListener("click", User.currentUser.showUserEdit)
+        li.appendChild(a)
+    }
+
     static addUserTab() {
         let form = document.getElementById("main-form")    
         let div = document.createElement("div")
