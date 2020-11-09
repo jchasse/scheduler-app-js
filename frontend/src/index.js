@@ -1,6 +1,16 @@
+// one user, view services.all, locations.all
+// one user, return user and locations, show list of locations off user
+// add Eliot button and filter Locations
+// video of the Eliot video
+// git hub push
+
+
 document.addEventListener('DOMContentLoaded', function() {
     setFormLink()
-    setAllTabs()
+    User.fetchUsers()
+    .then(() => User.showUserNavbar())
+    .then(() => Location.showLocationsNavbar())
+    .then(() => setAllTabs())
 })
 
 function setAllTabs() {
@@ -56,3 +66,4 @@ function clearForm() {
     let form = document.getElementById('main-form')
     form.innerHTML = ""
 }
+

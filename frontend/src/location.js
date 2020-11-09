@@ -41,7 +41,6 @@ class Location {
         .then(locationObj => {
             let newLocation = new Location(locationObj.data)
             console.log(newLocation)
-            Location.displayLocations()
         })
     }
 
@@ -49,7 +48,7 @@ class Location {
         clearForm()
         Location.addLocationHeading()
         Location.fetchUserLocations()
-        .then( () =>Location.renderLocations() )
+        .then( () => Location.renderLocations() )
     }
 
     static fetchUserLocations() {
@@ -139,6 +138,21 @@ class Location {
         })
     }
 
+    static filterCity() {
+        clearForm()
+        let city = "Elliot"
+        const filteredResults = Location.allLocations.filter(location => location.city == city)
+        let form = document.getElementById("main-form")
+        let h1 = document.createElement("h1")
+            h1.innerText = 'My Locations'
+        form.appendChild(h1)        
+        for (let location of filteredResults) {
+            location.showLocationCard()
+        }
+
+        Location.showNewLocationCard() 
+    }
+
 
     //Rendering tabs/links below
 
@@ -155,7 +169,11 @@ class Location {
         let form = document.getElementById("main-form")
         let h1 = document.createElement("h1")
             h1.innerText = 'My Locations'
+        let button = document.createElement("button")
+            button.innerText = "Elliot"
+            button.addEventListener("click", Location.filterCity)
         form.appendChild(h1)
+        form.appendChild(button)
     }
 
     showLocationCard() {

@@ -1,6 +1,7 @@
 class User {
     
     static currentUser
+    static allUsers = []
 
     constructor(user) {
         this.id = user.id
@@ -10,6 +11,19 @@ class User {
         this.email = user.attributes.email
         // this.locations = user.attributes.locations.map(location => new Location(location))
         User.currentUser = this
+        User.allUsers.push(this)
+    }
+
+    // Part of the HOMEWORK FOLLOWUP
+
+    static fetchUsers() {
+        const url = `http://localhost:3000/users`
+
+        return fetch(url)
+        .then(r => r.json())
+        .then(users => {
+          for (let user of users.data) new User(user)
+        })
     }
 
     static createUser() {

@@ -13,7 +13,6 @@ class Service {
     static createService() {
         let issueArray = []
         let issueCSV
-
         const kind = document.getElementById('category-select').value
         const kindDetail = document.getElementById('service-select').value
         const details = document.getElementById('details-select').value
